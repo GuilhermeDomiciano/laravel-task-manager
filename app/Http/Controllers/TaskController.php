@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Task;
 
 class TaskController extends Controller
 {
@@ -12,7 +13,8 @@ class TaskController extends Controller
      */
     public function index()
     {
-        //
+        $tasks = Task::all(); // Busca todas as tarefas
+        return view('tasks.index', compact('tasks')); // Passa as tarefas para o view
     }
 
     /**
