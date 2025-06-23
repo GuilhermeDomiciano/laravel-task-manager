@@ -6,6 +6,21 @@
     <title>Lista de Tarefas</title>
 </head>
 <body>
+    @if (session('success')) {{-- CORRIGIDO AQUI: 'sucess' para 'success' --}}
+        <div style="background-color: lightgreen; padding: 10px; margin-bottom: 10px;">
+            {{ session('success') }}
+        </div>
+    @endif
+
+    @if ($errors->any())
+        <div style="background-color: lightcoral; padding: 10px; margin-bottom: 10px;">
+            <ul>
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <h1>Minhas Tarefas</h1>
     <a href="{{ route('tasks.create') }}">Nova Tarefa</a>
     <ul>
