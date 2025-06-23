@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lista de Tarefas</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Lista de Tarefas')
+
+@section('content')
     @if (session('success')) {{-- CORRIGIDO AQUI: 'sucess' para 'success' --}}
         <div style="background-color: lightgreen; padding: 10px; margin-bottom: 10px;">
             {{ session('success') }}
@@ -42,5 +39,4 @@
             </li>
         @endforeach
     </ul>
-</body>
-</html>
+@endsection

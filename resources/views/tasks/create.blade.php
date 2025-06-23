@@ -1,11 +1,8 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Criar Nova Tarefa</title>
-</head>
-<body>
+@extends('layouts.app')
+
+@section('title', 'Criar nova tarefa')
+
+@section('content')
     <h1>Criar Nova Tarefa</h1>
     <form action="{{ route('tasks.store') }}" method="POST">
         @csrf
@@ -21,5 +18,4 @@
         <button type="submit">Salvar Tarefa</button>
     </form>
     <a href="{{ route('tasks.index') }}">Voltar para a Lista</a>
-</body>
-</html>
+@endsection
