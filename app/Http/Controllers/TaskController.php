@@ -22,7 +22,7 @@ class TaskController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create'); // Retorna a view do formuláiro
     }
 
     /**
@@ -30,7 +30,16 @@ class TaskController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Validação 
+        $request->validate([
+            'title' => 'required|max:255',
+            'description' => 'nullable',
+            'due_date' => 'nullable|date',
+        ]);
+
+        $task = Task::create($request->all()); // Cria uma nova tarefa com os dados do formulário
+
+        return redirect()->route('tasks.index')->with('success','Tarefa criada com sucesso!');
     }
 
     /**
